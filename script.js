@@ -14,6 +14,7 @@ const getList = async () => {
         data.cadastros.forEach(item => {
             insertList(item.id, item.nome, item.valor, item.link);
         });
+        carregarSelectMateriais();
     } catch (error) {
         console.error('Erro ao buscar lista:', error);
     }
@@ -160,6 +161,7 @@ const novaSolicitacao = async () => {
             alert("Solicitação enviada com sucesso!");
             
             document.getElementById("solicitaQtde").value = "";
+            getSolicitacoes();
         }
     } catch (error) {
         alert("Erro ao enviar solicitação.");
@@ -265,7 +267,6 @@ const deleteSolicitacao = async (id) => {
 // Atualiza a função de carregamento inicial para incluir as solicitações
 const inicializar = async () => {
     await getList();
-    await carregarSelectMateriais();
     await getSolicitacoes();
     await getEstoque();
 }
@@ -322,11 +323,5 @@ const deletarItemEstoque = async (id) => {
     }
 };
 
-// Atualiza a função getList para atualizar o select sempre que um material for deletado/adicionado
-const getListOriginal = getList; 
-getList = async () => {
-    await getListOriginal();
-    carregarSelectMateriais();
-};
 
 
