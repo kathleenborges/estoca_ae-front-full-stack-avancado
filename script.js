@@ -159,6 +159,17 @@ const insertList = (id, nome, valor, link) => {
     img.src = link;
     img.alt = nome;
     img.className = "miniatura";
+    img.onerror = () => {
+        if (/^https?:\/\//.test(link)) {
+            const a = document.createElement("a");
+            a.href = link;
+            a.target = "_blank";
+            a.textContent = "Ver link";
+            img.replaceWith(a);
+        } else {
+            img.replaceWith("Sem imagem");
+        }
+    };
     linkCell.appendChild(img);
 
     const btnCell = row.insertCell(3);
