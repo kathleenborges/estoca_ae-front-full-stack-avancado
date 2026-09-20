@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoca aê! | Gestão de Materiais</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero-section">
+    <div class="hero-banner">
+    </div>
+</header>
+
+<div class="container">
+    <h2>Cadastrar Novo Material</h2>
+    <div class="form-cadastro">
+        <input type="text" id="newInput" placeholder="Nome do Material">
+        <input type="number" id="newPrice" placeholder="Valor (R$)">
+        <input type="text" id="newLink" placeholder="Link da Imagem">
+        <button onclick="newItem()" id="btn-add">Adicionar</button>
+    </div>
+
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Link</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+    <h2>Solicitar Material</h2>
+    <div class="form-cadastro">
+        <select id="selectMateriais">
+            <option value="">Selecione um material...</option>
+        </select>
+        <input type="number" id="solicitaQtde" placeholder="Quantidade">
+        <input type="date" id="solicitaData">
+        <button onclick="novaSolicitacao()" id="btn-solicitar">Solicitar</button>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+    <h2>Solicitações Pendentes</h2>
+    <table id="tableSolicitacoes">
+        <thead>
+            <tr>
+                <th>Material</th>
+                <th>Qtd</th>
+                <th>Data Necessidade</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+    <h2>Estoque Disponível (Itens Atendidos)</h2>
+    <table id="tableEstoque">
+        <thead>
+            <tr>
+                <th>Material</th>
+                <th>Quantidade</th>
+                <th>Data de Entrada</th>
+                <th>Ações</th> </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

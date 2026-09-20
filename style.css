@@ -1,0 +1,149 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #333;
+    margin-top: 0;
+}
+/* Estilo para o painel de cabeçalho */
+
+.hero-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+    background-color: #f1f3f5;
+}
+
+.hero-banner {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 260px;
+
+    background-image: url("painel.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        min-height: 200px;
+        padding: 25px;
+    }
+}
+
+.form-cadastro {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #28a745;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #555;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+}
+
+#tableEstoque th {
+    background-color: #e9ecef;
+}
+
+.btn-atender {
+    background-color: #007bff;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn-atender:hover {
+    background-color: #0069d9;
+}
+
+.status-pendente {
+    color: #856404;
+    background-color: #fff3cd;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
