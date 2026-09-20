@@ -1,9 +1,32 @@
 # estoca_ae_front
-Primeiro MVP para Pós PUC RIO - Engenharia de Software  Resources
+MVP para Pós PUC RIO - Engenharia de Software - Arquitetura de Software
 
 # 📦 Estoca aê! - Gestão de Logística Inteligente
 
-O **Estoca aê!** é uma solução moderna para controle de estoque e logística de materiais, focada em simplicidade e eficiência operacional. O sistema permite o cadastro de itens, gestão de solicitações e visualização de estoque em tempo real.
+O **Estoca aê!** é uma interface web para gestão de materiais e controle de estoque. O sistema permite o cadastro de itens, gestão de solicitações e visualização de estoque em tempo real.
+O usuário consulta um catálogo de referência (Fake Store API), cadastra materiais, faz solicitações, atende os pedidos e acompanha o estoque gerado. Os registros ficam guardados na API Estoca aê! (repositório separado), que armazena os dados em SQLite.
+
+# Sumário
+
+Arquitetura
+Funcionalidades
+Tecnologias
+API externa: Fake Store API
+Comunicação com a API Estoca aê!
+Estrutura do projeto
+Como executar
+Repositórios do projeto
+
+# Arquitetura
+
+![Arquitetura do projeto](docs/arquitetura.png)
+
+- O projeto segue o Cenário 1 proposto no enunciado do MVP:
+- O front-end (este repositório) é servido por nginx na porta 8080.
+- O front consulta o catálogo de produtos na Fake Store API (serviço externo).
+- O front chama a API Estoca aê! (Flask, porta 5001) para cadastrar materiais, criar e atender solicitações e consultar o estoque.
+- A API persiste os dados em SQLite, em um volume Docker.
+
 
 ## 🚀 Funcionalidades
 
