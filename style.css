@@ -147,3 +147,50 @@ select {
     font-weight: bold;
 }
 
+.status-atendida {
+    color: #155724;
+    background-color: #d4edda;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Catálogo da Fake Store */
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+    max-height: 420px;
+    overflow-y: auto;
+}
+
+.card-produto {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.card-produto img {
+    height: 110px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.card-titulo {
+    font-size: 13px;
+    margin: 0;
+    flex: 1;
+}
+
+/* Miniatura na tabela de materiais */
+.miniatura {
+    height: 40px;
+    max-width: 60px;
+    object-fit: contain;
+}

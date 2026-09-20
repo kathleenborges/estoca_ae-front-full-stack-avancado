@@ -77,13 +77,72 @@ const deleteItem = async (id) => {
 
 /* Funções Auxiliares 
 */
+const fakeStoreUrl = 'https://fakestoreapi.com';
+
+// Carrega as categorias no select (GET externo)
+const carregarCategorias = async () => {
+    try {
+        const response = await fetch(`${fakeStoreUrl}/products/categories`);
+        const categorias = await response.json();
+        const select = document.getElementById("selectCategoria");
+        categorias.forEach(cat => {
+            const option = document.createElement("option");
+            option.value = cat;
+            option.textContent = cat;
+            select.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Erro ao carregar categorias:", error);
+    }
+}
+
+// Carrega os produtos, todos ou de uma categoria (GET externo)
+const carregarCatalogo = async (categoria = "") => {
+    const url = categoria
+        ? `${fakeStoreUrl}/products/category/${encodeURIComponent(categoria)}`
+        : `${fakeStoreUrl}/products`;
+    const catalogo = document.getElementById("catalogo");
+    catalogo.textContent = "Carregando catálogo...";
+
+    try {
+        const response = await fetch(url);
+        const produtos = await response.json();
+        catalogo.innerHTML = "";
+
+        produtos.forEach(produto => {
+            const card = document.createElement("div");
+            card.className = "card-produto";
+
+            const img = document.createElement("img");
+            img.src = produto.image;
+            img.alt = produto.title;
+
+            const titulo = document.createElement("p");
+            titulo.className = "card-titulo";
+            titulo.textContent = produto.title;
+
+            const preco = document.createElement("strong");
+            preco.textContent = `$ ${produto.price.toFixed(2)}`;
+
+            const btn = document.createElement("button");
+            btn.textContent = "Cadastrar";
+            btn.onclick = () => postItem(produto.title, produto.price, produto.image);
+
+            card.append(img, titulo, preco, btn);
+            catalogo.appendChild(card);
+        });
+    } catch (error) {
+        catalogo.textContent = "Não foi possível carregar o catálogo.";
+    }
+}
+
 const newItem = () => {
     let nome = document.getElementById("newInput").value;
     let valor = document.getElementById("newPrice").value;
     let link = document.getElementById("newLink").value;
 
-    if (!nome || !valor) {
-        alert("Nome e Valor são obrigatórios!");
+    if (!nome || !valor || !link) {
+        alert("Nome, Valor e Link da Imagem são obrigatórios!");
         return;
     }
     postItem(nome, valor, link);
@@ -95,8 +154,13 @@ const insertList = (id, nome, valor, link) => {
 
     row.insertCell(0).textContent = nome;
     row.insertCell(1).textContent = `R$ ${parseFloat(valor).toFixed(2)}`;
-    row.insertCell(2).innerHTML = `<a href="${link}" target="_blank">Ver link</a>`;
-    
+    const linkCell = row.insertCell(2);
+    const img = document.createElement("img");
+    img.src = link;
+    img.alt = nome;
+    img.className = "miniatura";
+    linkCell.appendChild(img);
+
     const btnCell = row.insertCell(3);
     const delBtn = document.createElement("button");
     delBtn.className = "btn-delete";
@@ -162,6 +226,9 @@ const novaSolicitacao = async () => {
             
             document.getElementById("solicitaQtde").value = "";
             getSolicitacoes();
+        } else {
+            const erro = await response.json();
+            alert("Erro: " + (erro.message || "não foi possível criar a solicitação."));
         }
     } catch (error) {
         alert("Erro ao enviar solicitação.");
@@ -185,7 +252,8 @@ const getSolicitacoes = async () => {
             
             // Coluna Status com estilo
             const statusCell = row.insertCell(3);
-            statusCell.innerHTML = `<span class="status-pendente">${item.status}</span>`;
+            const classe = item.status === "PENDENTE" ? "status-pendente" : "status-atendida";
+            statusCell.innerHTML = `<span class="${classe}">${item.status}</span>`;
 
             // Coluna Ações (Onde ficarão os botões)
             const btnCell = row.insertCell(4);
@@ -269,10 +337,9 @@ const inicializar = async () => {
     await getList();
     await getSolicitacoes();
     await getEstoque();
+    await carregarCategorias();
+    await carregarCatalogo();
 }
-
-// Chama a inicialização
-inicializar();
 
 // Busca a lista de estoque (GET)
 const getEstoque = async () => {
@@ -323,5 +390,6 @@ const deletarItemEstoque = async (id) => {
     }
 };
 
-
+// Chama a inicialização
+inicializar();
 

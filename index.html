@@ -15,6 +15,16 @@
     </div>
 </header>
 
+<div class="container" style="margin-bottom: 20px;">
+    <h2>Catálogo de Referência (Fake Store)</h2>
+    <div class="form-cadastro">
+        <select id="selectCategoria" onchange="carregarCatalogo(this.value)">
+            <option value="">Todas as categorias</option>
+        </select>
+    </div>
+    <div id="catalogo" class="catalogo"></div>
+</div>
+
 <div class="container">
     <h2>Cadastrar Novo Material</h2>
     <div class="form-cadastro">
@@ -29,7 +39,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Valor</th>
-                <th>Link</th>
+                <th>Imagem</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -51,7 +61,7 @@
 </div>
 
 <div class="container" style="margin-top: 20px;">
-    <h2>Solicitações Pendentes</h2>
+    <h2>Solicitações</h2>
     <table id="tableSolicitacoes">
         <thead>
             <tr>
