@@ -159,6 +159,7 @@ docker compose down -v
 ## 🔗 Repositórios do projeto
 Componente	Repositório
 🌐 Front-end	estoca_ae-front-full-stack-avancado
+
 🔧 API / Back-end	estoca_ae-api-full-stack-avancado
 
 ---
