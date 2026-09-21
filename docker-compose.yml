@@ -1,0 +1,17 @@
+services:
+  api:
+    build: ../estoca_ae-api-full-stack-avancado
+    ports:
+      - "5001:5001"
+    volumes:
+      - estoca_dados:/app/model/database
+
+  front:
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+volumes:
+  estoca_dados:
