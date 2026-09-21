@@ -21,7 +21,7 @@ Repositórios do projeto
 
 ![Arquitetura do projeto](docs/arquitetura.png)
 
-- O projeto segue o Cenário 1 proposto no enunciado do MVP:
+- O projeto segue o Cenário 1 proposto no enunciado do MVP.
 - O front-end (este repositório) é servido por nginx na porta 8080.
 - O front consulta o catálogo de produtos na Fake Store API (serviço externo).
 - O front chama a API Estoca aê! (Flask, porta 5001) para cadastrar materiais, criar e atender solicitações e consultar o estoque.
@@ -83,8 +83,7 @@ Cada produto escolhido no catálogo é cadastrado na API **Estoca aê!** com o s
 
 O endereço da API está definido na primeira linha do `script.js`, através da variável `baseUrl`:
 
-```javascript
-const baseUrl = 'http://127.0.0.1:5001';
+const baseUrl = 'http://127.0.0.1:5001'
 
 |  Método  | Rota                         | Uso no front-end                                       |
 | :------: | ---------------------------- | ------------------------------------------------------ |
@@ -117,8 +116,8 @@ const baseUrl = 'http://127.0.0.1:5001';
 └── README.md                 # Documentação do projeto
 
 
-## 🚀 Como executar
-🐳 Opção 1 — Docker Compose
+## 🐳 Como executar
+Opção 1 — Docker Compose
 Pré-requisitos
 Docker instalado e em execução.
 Repositórios do front-end e da API clonados lado a lado.
