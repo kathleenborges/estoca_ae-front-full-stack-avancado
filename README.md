@@ -326,12 +326,8 @@ http://localhost:8080
 
 ## 👩‍💻 Desenvolvimento
 
-**Estoca aê!**
-
-Projeto desenvolvido por **Kathleen Borges**, com foco em otimização de processos, gestão de materiais e controle de estoque.
-
 📦 **Front-end:** HTML, CSS, JavaScript e Nginx  
 🔧 **Back-end:** Flask, SQLAlchemy e SQLite  
 🐳 **Infraestrutura:** Docker e Docker Compose
 
-Desenvolvido por Kathleen Borges com foco em otimização de processos. 🤖📦
+Desenvolvido por **Kathleen Borges**, com foco em otimização de processos, gestão de materiais e controle de estoque. 🤖📦
